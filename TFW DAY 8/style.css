@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Deep space/cyber space background */
+    background: radial-gradient(circle at center, #0f172a 0%, #000000 100%);
+    font-family: sans-serif;
+    transition: background-color 0.3s;
+}
+
+/* Glassmorphism futuristic casing */
+.clock-body {
+    background: rgba(16, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 750px;
+    height: 380px;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    /* Neon cyan border and glow */
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.15), inset 0 0 20px rgba(0, 255, 255, 0.05);
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+/* Holographic top button */
+.top-button {
+    position: absolute;
+    top: -25px;
+    background: linear-gradient(90deg, #ff007f, #7928ca);
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 4px;
+    padding: 12px 100px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 -5px 15px rgba(255, 0, 127, 0.4);
+    transition: all 0.15s ease-in-out;
+}
+
+.top-button:hover {
+    box-shadow: 0 -5px 25px rgba(255, 0, 127, 0.7);
+    filter: brightness(1.2);
+}
+
+.top-button:active {
+    top: -15px;
+    padding: 7px 100px;
+    box-shadow: 0 -2px 10px rgba(255, 0, 127, 0.5);
+}
+
+/* Minimalist alarm controls */
+.alarm-controls {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0ff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+#alarmTime {
+    background: rgba(0, 0, 0, 0.5);
+    color: #0ff;
+    border: 1px solid #0ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.2);
+}
+
+#alarmTime::-webkit-calendar-picker-indicator {
+    filter: invert(70%) sepia(100%) saturate(300%) hue-rotate(130deg) brightness(100%) contrast(100%);
+    cursor: pointer;
+}
+
+.brand {
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 12px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-shadow: 0 0 10px #7928ca, 0 0 20px #ff007f;
+}
+
+/* Deep space screen with glowing text */
+.screen {
+    background-color: #050510;
+    width: 95%;
+    flex-grow: 1;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 255, 0.1);
+    display: flex;
+    padding: 25px;
+    /* Neon Cyan Text */
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px rgba(0, 255, 255, 0.5);
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.3s;
+}
+
+.center-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#time {
+    font-size: 130px;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+/* Blinking Colon */
+.colon {
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Futuristic Glitch/Warning State */
+.ringing .screen {
+    background-color: #1a0000;
+    color: #ff003c;
+    text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c;
+    animation: pulseWarning 0.5s infinite alternate;
+}
+
+.ringing {
+    border-color: rgba(255, 0, 60, 0.8);
+    box-shadow: 0 0 40px rgba(255, 0, 60, 0.4), inset 0 0 20px rgba(255, 0, 60, 0.2);
+    animation: glitchShake 0.4s infinite;
+}
+
+@keyframes pulseWarning {
+    from { box-shadow: inset 0 5px 20px rgba(0,0,0,0.8); }
+    to { box-shadow: inset 0 5px 40px rgba(255, 0, 60, 0.5); }
+}
+
+@keyframes glitchShake {
+    0% { transform: translate(2px, 1px) skewX(0deg); }
+    20% { transform: translate(-2px, -2px) skewX(-2deg); }
+    40% { transform: translate(-3px, 1px) skewX(0deg); }
+    60% { transform: translate(3px, 2px) skewX(1deg); }
+    80% { transform: translate(-1px, -1px) skewX(-1deg); }
+    100% { transform: translate(2px, -2px) skewX(0deg); }
+}

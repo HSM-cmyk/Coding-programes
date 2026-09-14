@@ -1,0 +1,170 @@
+/* style.css - Improved Version */
+:root {
+  --bg-body: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --text-heading: #111827;
+  --border-muted: #e5e7eb;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+/* Global Reset and Body Styling */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-body);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-main);
+}
+
+/* Main Container Card */
+.container {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+/* 
+  Target library elements with higher specificity 
+  to minimize !important usage where possible 
+*/
+body div#qr-code-reader {
+  border: 1px solid var(--border-muted) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+}
+
+body div#qr-code-reader__scan_region {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+#qr-code-reader__scan_region video {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+}
+
+body div#qr-code-reader__dashboard {
+  background-color: #f8fafc;
+  border-top: 1px solid var(--border-muted);
+  padding: 1.5rem;
+}
+
+/* Dropdown Menu */
+body select.html5-qrcode-element {
+  appearance: none;
+  background-color: var(--bg-card);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius-sm);
+  padding: 10px 36px 10px 16px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  transition: all 0.2s ease;
+}
+
+body select.html5-qrcode-element:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Primary Buttons */
+body button.html5-qrcode-element {
+  background-color: var(--primary);
+  color: var(--bg-card);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+body button.html5-qrcode-element:hover {
+  background-color: var(--primary-hover);
+}
+
+body button.html5-qrcode-element:active {
+  transform: scale(0.97);
+}
+
+/* File Upload Drag & Drop Area - Specificity increased slightly */
+#qr-code-reader__dashboard_section div[style*="text-align"],
+#qr-code-reader__dashboard_section > div > div:nth-child(2) {
+  border: 2px dashed #cbd5e1 !important;
+  border-radius: var(--radius-md) !important;
+  background-color: var(--bg-card) !important;
+  padding: 20px !important;
+  margin-top: 15px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+#qr-code-reader__dashboard_section > div > div:nth-child(2):hover {
+  border-color: var(--primary) !important;
+}
+
+/* Toggle Link */
+#html5-qrcode-anchor-scan-type-change {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  margin-top: 1rem !important;
+}
+
+#html5-qrcode-anchor-scan-type-change:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+}
+
+/* Status Message */
+#qr-code-reader__header_message {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border-bottom: 1px solid #fde68a !important;
+  padding: 8px 12px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+}
+
+#qr-code-reader > div:first-child > img {
+  display: none !important;
+}

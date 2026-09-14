@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Importing a digital-style font for the LCD screen look -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Digital Alarm Clock</title>
+</head>
+<body onload="updateTime()">
+
+    <div class="clock-body" id="clockBody">
+        <!-- Physical clock casing details -->
+        <button id="stopAlarm" class="top-button" onclick="STOPALARM()">STOP ALARM
+        </button>
+        
+        <!-- Styled alarm input -->
+        <div class="alarm-controls">
+            <label for="alarmTime">SET ALARM:</label>
+            <input type="time" id="alarmTime">
+        </div>
+
+        <div class="brand">BOMB CLOCK</div>
+        
+        <!-- The main LCD Screen -->
+        <div class="screen">
+            <div class="center-panel">
+                <!-- Time will be injected here via JS -->
+                <div id="time" class="time">00<span class="colon">:</span>00<span class="colon">:</span>00</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alarm audio -->
+   <audio id="alarmSound" src="alarm_sound.mp3.mp3" preload="auto" loop></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
